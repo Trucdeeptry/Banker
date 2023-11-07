@@ -1,0 +1,134 @@
+:root {
+    --arrow-bg: rgba(255, 255, 255, 0.3);
+    --arrow-icon: url(https://upload.wikimedia.org/wikipedia/commons/9/9d/Caret_down_font_awesome_whitevariation.svg);
+    --option-bg: white;
+    --select-bg: rgba(255, 255, 255, 0.2);
+  }
+  * {
+    box-sizing: border-box;
+  }
+h3{
+    color: white;
+}
+body {
+	margin: 100px;
+	background: linear-gradient(45deg, #49a09d, #5f2c82);
+	font-weight: 100;
+    font-size: 16px;
+}
+
+.container {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+table {
+	width: 800px;
+	border-collapse: collapse;
+	overflow: hidden;
+	box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+
+th,
+td {
+	padding: 15px;
+	background-color: rgba(255,255,255,0.2);
+	color: #fff;
+    border: 1px solid #1a1d2b; /* Thêm đường kẻ với màu đen */
+    text-align: center;
+}
+
+th {
+	text-align: center;
+    background-color: #55608f;
+    
+}
+
+tr:hover{
+	background-color: rgba(255,255,255,0.3);
+}
+	td {
+		position: relative;
+		&:hover {
+			&:before {
+				content: "";
+				position: absolute;
+				left: 0;
+				right: 0;
+				top: -9999px;
+				bottom: -9999px;
+				background-color: rgba(255,255,255,0.2);
+				z-index: -1;
+			}
+		}
+	}
+
+    select {
+        /* Reset */
+        appearance: none;
+        border: 0;
+        outline: 0;
+        font: inherit;
+        /* Personalize */
+        width: 100%;
+        /* padding: 1rem 4rem 1rem 1rem; */
+        padding: 10px;
+        background: var(--arrow-icon) no-repeat right 0.8em center / 1.4em,
+          linear-gradient(to left, var(--arrow-bg) 2em, var(--select-bg) 3em);
+        color: white;
+        border-radius: 0.25em;
+        box-shadow: 0 0 1em 0 rgba(0, 0, 0, 0.2);
+        cursor: pointer;
+        /* Remove IE arrow */
+        &::-ms-expand {
+          display: none;
+        }
+        /* Remove focus outline */
+        &:focus {
+          outline: none;
+        }
+        /* <option> colors */
+        option {
+          color: white;
+        }
+        
+    }
+
+    option{
+        background-color: #1a1d2b;
+    }
+
+/* CSS */
+button {
+  background-image: linear-gradient(92.88deg, #455EB5 9.16%, #5643CC 43.89%, #673FD7 64.72%);
+  border-radius: 8px;
+  border-style: none;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  flex-shrink: 0;
+  font-family: "Inter UI","SF Pro Display",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Open Sans","Helvetica Neue",sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  height: 4rem;
+  padding: 0 1.6rem;
+  text-align: center;
+  text-shadow: rgba(0, 0, 0, 0.25) 0 3px 8px;
+  transition: all .5s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+button:hover {
+  box-shadow: rgba(80, 63, 205, 0.5) 0 1px 30px;
+  transition-duration: .1s;
+}
+
+@media (min-width: 768px) {
+  button {
+    padding: 0 2.6rem;
+  }
+}

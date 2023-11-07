@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./table.css">
+  
+    <title>Banker</title>
+</head>
+<body>
+    <div class="content">
+        <table style="width: 100%;" >
+            <tr>
+                <th colspan="3">Tiến Trình</th>
+                <th colspan="3">Allocation</th>
+                <th colspan="3">Max</th>
+                <th colspan="3">Need</th>
+                <th colspan="3">Avaiable</th>
+            </tr>
+            <tr>
+                <td>
+                    <p>A</p>
+                    <select id="A-src">
+                        <option  value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10" selected>10</option>
+                    </select>
+                </td>
+                <td>
+                    <p>B</p>
+                    <select id="B-src">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5" selected>5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                    </select>
+                </td>
+                <td>
+                    <p>C</p>
+                    <select id="C-src">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7" selected>7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                    </select>
+                </td>
+                <td>A</td>
+                <td>B</td>
+                <td>C</td>
+                <td>A</td>
+                <td>B</td>
+                <td>C</td>
+                <td>A</td>
+                <td>B</td>
+                <td>C</td>
+                <td>A</td>
+                <td>B</td>
+                <td>C</td>
+            </tr>
+            <tr>
+                <td colspan="3">P0</td>
+                <td>
+                    <select id="P0_A-all">
+                        <option value="0" selected>0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                    </select>
+                </td>
+                <td>
+                    <select id="P0_B-all">
+                        <option value="0" >0</option>
+                        <option value="1" selected>1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                    </select>
+                </td>
+                <td>
+                    <select id="P0_C-all">
+                        <option value="0" selected>0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                    </select>
+                </td>
+                <td>
+                    <select id="P0_A-max">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7" selected>7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                    </select>
+                </td>
+                <td>
+                    <select id="P0_B-max">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5" selected>5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                    </select>
+                </td>
+                <td>
+                    <select id="P0_C-max">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3" selected>3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                    </select>
+                </td>
+                <td id="P0_A-need">calc</td>
+                <td id="P0_B-need">calc</td>
+                <td id="P0_C-need">calc</td>
+                <td id="A-avail">calc</td>
+                <td id="B-avail">calc</td>
+                <td id="C-avail">calc</td>
+            </tr>
+           <tr>
+            <td colspan="3">P1</td>
+                <td>
+                    <select id="P1_A-all">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2" selected>2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                    </select>
+                </td>
+                <td>
+                    <select id="P1_B-all">
+                        <option value="0" selected>0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                    </select>
+                </td>
+                <td>
+                    <select id="P1_C-all">
+                        <option value="0" selected>0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                    </select>
+                </td>
+                <td>
+                    <select id="P1_A-max">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3" selected>3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                    </select>
+                </td>
+                <td>
+                    <select id="P1_B-max">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2" selected>2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                    </select>
+                </td>
+                <td>
+                    <select id="P1_C-max">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2" selected>2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                    </select>
+                </td>
+                <td id="P1_A-need">calc</td>
+                <td id="P1_B-need">calc</td>
+                <td id="P1_C-need">calc</td>
+                <td class="info" rowspan="3" colspan="3">
+                    <p class="text-safe">Result</p>
+                </td>
+           </tr>
+           <td colspan="3">P2</td>
+                <td>
+                    <select id="P2_A-all">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3" selected>3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                    </select>
+                </td>
+                <td>
+                    <select id="P2_B-all">
+                        <option value="0" selected>0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                    </select>
+                </td>
+                <td>
+                    <select id="P2_C-all">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2" selected>2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                    </select>
+                </td>
+                <td>
+                    <select id="P2_A-max">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9" selected>9</option>
+                    </select>
+                </td>
+                <td>
+                    <select id="P2_B-max">
+                        <option value="0" selected>0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                    </select>
+                </td>
+                <td>
+                    <select id="P2_C-max">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2"selected>2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                    </select>
+                </td>
+                <td id="P2_A-need">calc</td>
+                <td id="P2_B-need">calc</td>
+                <td id="P2_C-need">calc</td>
+                <tr>
+
+                    <td colspan="3">P3</td>
+                    <td>
+                        <select id="P3_A-all">
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2" selected>2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select id="P3_B-all">
+                            <option value="0">0</option>
+                            <option value="1" selected>1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select id="P3_C-all">
+                            <option value="0">0</option>
+                            <option value="1" selected>1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select id="P3_A-max">
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2" selected>2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select id="P3_B-max">
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2" selected>2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select id="P3_C-max">
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2" selected>2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                        </select>
+                    </td>
+                    <td id="P3_A-need">calc</td>
+                    <td id="P3_B-need">calc</td>
+                    <td id="P3_C-need">calc</td>
+                </tr>
+                <tr>
+
+                    <td colspan="3">P4</td>
+                    <td>
+                        <select id="P4_A-all">
+                            <option value="0" selected>0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select id="P4_B-all">
+                            <option value="0" selected>0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select id="P4_C-all">
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2" selected>2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select id="P4_A-max">
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2" >2</option>
+                            <option value="3">3</option>
+                            <option value="4" selected>4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select id="P4_B-max">
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3" selected>3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select id="P4_C-max">
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3" selected>3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                        </select>
+                    </td>
+                    <td id="P4_A-need">calc</td>
+                    <td id="P4_B-need">calc</td>
+                    <td id="P4_C-need">calc</td>
+                    <td colspan="3" class="td-button">
+                        <button class="custom-button" onclick="RunFunc()">Submit</button>
+                    </td>
+
+                </tr>
+              
+                 
+                
+        </table>
+     <!-- Work table -->
+     <div class="wrapper" style="display: flex; justify-content: space-between ;margin-top: 20px;">
+        <div class="work-table" style="width: 40%;" >
+               <table style="width: 100%;" >
+                <tr>
+                    <th colspan="4">Work</th>
+                </tr>
+                   <tr>
+                       <th rowspan="3">Tiến Trình</th>
+                   </tr>
+                   <tr>
+                       <th>A</th>
+                       <th>B</th>
+                       <th>C</th>
+                   </tr>
+                   <tr>
+                       <td id="A-work">calc</td>
+                       <td id="B-work">calc</td>
+                       <td id="C-work">calc</td>
+                   </tr>
+                   <tr>
+                       <td id="process0">calc</td>
+                       <td id="process0-A">calc</td>
+                       <td id="process0-B">calc</td>
+                       <td id="process0-C">calc</td>
+                   </tr>
+                   <tr>
+                       <td id="process1">calc</td>
+                       <td id="process1-A">calc</td>
+                       <td id="process1-B">calc</td>
+                       <td id="process1-C">calc</td>
+                   </tr>
+                   <tr>
+                       <td id="process2">calc</td>
+                       <td id="process2-A">calc</td>
+                       <td id="process2-B">calc</td>
+                       <td id="process2-C">calc</td>
+                   </tr>
+                   <tr>
+                       <td id="process3">calc</td>
+                       <td id="process3-A">calc</td>
+                       <td id="process3-B">calc</td>
+                       <td id="process3-C">calc</td>
+                   </tr>
+                   <tr>
+                       <td id="process4">calc</td>
+                       <td id="process4-A">calc</td>
+                       <td id="process4-B">calc</td>
+                       <td id="process4-C">calc</td>
+                   </tr>
+       
+               </table>
+        </div>
+        <!-- Request table -->
+        <div class="request-table" style="width: 40%;">
+            <table style="width: 100%;">
+                <tr>
+                    <th colspan="4">Request</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>A</td>
+                    <td>B</td>
+                    <td>C</td>
+                </tr>
+                <tr>
+                    <td>
+                            <select id="Request">
+                                <option value="0">P0</option>
+                                <option value="1" selected >P1</option>
+                                <option value="2">P2</option>
+                                <option value="3">P3</option>
+                                <option value="4">P4</option>
+                            </select>
+                    </td>
+                    <td>
+                        <select id="Request-A">
+                            <option value="0">0</option>
+                                    <option value="1" selected >1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select id="Request-B">
+                            <option value="0" selected >0</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select id="Request-C">
+                            <option value="0">0</option>
+                                    <option value="1">1</option>
+                                    <option value="2" selected >2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4">
+                        <button style="width: 50%;" class="custom-button" onclick="addToAllocation()">Add</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    </div>
+    
+</body>
+<script src="./main.js"> </script>
+</html>
