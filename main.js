@@ -173,7 +173,7 @@ function createMatrices() {
     }
 
     function createMatrixWork() {
-        // Lấy giá trị Allocation của từng tiến trình
+        // Lấy giá trị Available của từng tiến trình
         const available = [
             parseInt(document.getElementById("A-avail").textContent),
             parseInt(document.getElementById("B-avail").textContent),
@@ -256,33 +256,79 @@ function createMatrices() {
 
 
 // Hàm để cộng thêm Request vào Allocation cho tiến trình đã chọn
+// function addToAllocation() {
+//             // Lấy các phần tử HTML
+//             const requestSelect = document.getElementById("Request");
+//             const requestASelect = document.getElementById("Request-A");
+//             const requestBSelect = document.getElementById("Request-B");
+//             const requestCSelect = document.getElementById("Request-C");
+
+//         // Lấy giá trị của Request và các giá trị A, B, C tương ứng
+//         const selectedProcess = parseInt(requestSelect.value);
+//         const requestA = parseInt(requestASelect.value);
+//         const requestB = parseInt(requestBSelect.value);
+//         const requestC = parseInt(requestCSelect.value);
+
+//         // Lấy giá trị Allocation hiện tại cho tiến trình đã chọn
+//         const allocationA = parseInt(document.getElementById(`P${selectedProcess}_A-all`).value);
+//         const allocationB = parseInt(document.getElementById(`P${selectedProcess}_B-all`).value);
+//         const allocationC = parseInt(document.getElementById(`P${selectedProcess}_C-all`).value);
+
+//         // Cộng giá trị Request vào Allocation
+//         document.getElementById(`P${selectedProcess}_A-all`).value = allocationA + requestA;
+//         document.getElementById(`P${selectedProcess}_B-all`).value = allocationB + requestB;
+//         document.getElementById(`P${selectedProcess}_C-all`).value = allocationC + requestC;
+//         RunFunc();
+//         // Gắn sự kiện khi nút cộng được bấm
+//         // document.getElementById("addToAllocationButton").addEventListener("click", addToAllocation);
+          
+// }
+
 function addToAllocation() {
-            // Lấy các phần tử HTML
-            const requestSelect = document.getElementById("Request");
-            const requestASelect = document.getElementById("Request-A");
-            const requestBSelect = document.getElementById("Request-B");
-            const requestCSelect = document.getElementById("Request-C");
+    calculateAvailable();
+    // Lấy các phần tử HTML
+    const requestSelect = document.getElementById("Request");
+    const requestASelect = document.getElementById("Request-A");
+    const requestBSelect = document.getElementById("Request-B");
+    const requestCSelect = document.getElementById("Request-C");
 
-        // Lấy giá trị của Request và các giá trị A, B, C tương ứng
-        const selectedProcess = parseInt(requestSelect.value);
-        const requestA = parseInt(requestASelect.value);
-        const requestB = parseInt(requestBSelect.value);
-        const requestC = parseInt(requestCSelect.value);
+    // Lấy giá trị của Request và các giá trị A, B, C tương ứng
+    const selectedProcess = parseInt(requestSelect.value);
+    const requestA = parseInt(requestASelect.value);
+    const requestB = parseInt(requestBSelect.value);
+    const requestC = parseInt(requestCSelect.value);
 
-        // Lấy giá trị Allocation hiện tại cho tiến trình đã chọn
-        const allocationA = parseInt(document.getElementById(`P${selectedProcess}_A-all`).value);
-        const allocationB = parseInt(document.getElementById(`P${selectedProcess}_B-all`).value);
-        const allocationC = parseInt(document.getElementById(`P${selectedProcess}_C-all`).value);
+    // Kiểm tra nếu giá trị mới của Allocation lớn hơn giá trị của Available
 
-        // Cộng giá trị Request vào Allocation
+    const availableA = parseInt(document.getElementById("A-avail").textContent);
+    const availableB = parseInt(document.getElementById("B-avail").textContent);
+    const availableC = parseInt(document.getElementById("C-avail").textContent);
+
+    // Lấy giá trị Allocation hiện tại cho tiến trình đã chọn
+    const allocationA = parseInt(document.getElementById(`P${selectedProcess}_A-all`).value);
+    const allocationB = parseInt(document.getElementById(`P${selectedProcess}_B-all`).value);
+    const allocationC = parseInt(document.getElementById(`P${selectedProcess}_C-all`).value);
+
+    // Lấy giá trị Max tiến trình hiện tại
+    const MaxA = parseInt(document.getElementById(`P${selectedProcess}_A-max`).value);
+    const MaxB = parseInt(document.getElementById(`P${selectedProcess}_B-max`).value);
+    const MaxC = parseInt(document.getElementById(`P${selectedProcess}_C-max`).value);
+
+    const resultElement = document.querySelector('.text-safe');
+    if (allocationA + requestA > availableA || allocationB + requestB > availableB || allocationC + requestC > availableC) {
+        resultElement.textContent = 'Request lớn hơn giá trị Available';
+        if(allocationA + requestA > MaxA || allocationB + requestB > MaxB || allocationC + requestC > MaxC){
+           
+            resultElement.textContent = 'Request lớn hơn giá trị Max';
+        }
+    } else{
         document.getElementById(`P${selectedProcess}_A-all`).value = allocationA + requestA;
         document.getElementById(`P${selectedProcess}_B-all`).value = allocationB + requestB;
         document.getElementById(`P${selectedProcess}_C-all`).value = allocationC + requestC;
         RunFunc();
-        // Gắn sự kiện khi nút cộng được bấm
-        // document.getElementById("addToAllocationButton").addEventListener("click", addToAllocation);
-          
+    } 
 }
+
     
     function RunFunc(){
         createMatrices();
