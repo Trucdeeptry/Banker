@@ -315,10 +315,9 @@ function addToAllocation() {
     const MaxC = parseInt(document.getElementById(`P${selectedProcess}_C-max`).value);
 
     const resultElement = document.querySelector('.text-safe');
-    if (allocationA + requestA > availableA || allocationB + requestB > availableB || allocationC + requestC > availableC) {
+    if (requestA > availableA || requestB > availableB || requestC > availableC) {
         resultElement.textContent = 'Request lớn hơn giá trị Available';
         if(allocationA + requestA > MaxA || allocationB + requestB > MaxB || allocationC + requestC > MaxC){
-           
             resultElement.textContent = 'Request lớn hơn giá trị Max';
         }
     } else{
